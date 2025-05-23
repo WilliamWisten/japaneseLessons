@@ -4,8 +4,6 @@ pydantic==2.5.3
 python-dotenv==1.0.0
 sqlalchemy==2.0.25  # For database operations
 pytest==7.4.4  # For testing
-flask==3.0.0
-flask-cors==4.0.0
 firebase-admin==6.4.0  # For Firebase integration
 openai==1.12.0  # For OpenAI API integration
 spotipy==2.23.0  # For Spotify podcast processing 
