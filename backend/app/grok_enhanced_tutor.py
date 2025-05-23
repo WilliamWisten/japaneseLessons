@@ -44,7 +44,7 @@ class JapaneseTutor:
         
         if self.api_provider == "openai":
             data = {
-                "model": "gpt-3.5-turbo",
+                "model": "gpt-4o-mini",
                 "messages": [
                     {
                         "role": "user",
