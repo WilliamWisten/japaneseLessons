@@ -1,0 +1,17 @@
+fastapi==0.109.0
+uvicorn==0.27.0
+pydantic==2.5.3
+python-dotenv==1.0.0
+sqlalchemy==2.0.25  # For database operations
+pytest==7.4.4  # For testing
+flask==3.0.0
+flask-cors==4.0.0
+firebase-admin==6.4.0  # For Firebase integration
+openai==1.12.0  # For OpenAI API integration
+spotipy==2.23.0  # For Spotify podcast processing 
+google-cloud-texttospeech==2.15.0  # For text-to-speech functionality
+openai-whisper==20231117  # For podcast transcription
+ffmpeg-python==0.2.0  # Required for audio processing
+numpy>=1.20.0  # Required for whisper
+torch>=2.0.0  # Required for whisper
+pydub==0.25.1  # For audio file manipulation 

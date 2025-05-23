@@ -1,6 +1,5 @@
 "use client"
 
-import { useState } from "react"
 import { CheckCircle, XCircle } from "lucide-react"
 
 interface ExerciseSectionProps {
@@ -9,18 +8,14 @@ interface ExerciseSectionProps {
     options: string[]
     correct: string
   }
-  onComplete: (isCorrect: boolean) => void
+  onAnswer: (answer: string, correct: boolean) => void
+  selectedAnswer: string | null
 }
 
-export function ExerciseSection({ exercise, onComplete }: ExerciseSectionProps) {
-  const [feedback, setFeedback] = useState("")
-  const [selectedAnswer, setSelectedAnswer] = useState<string | null>(null)
-
+export function ExerciseSection({ exercise, onAnswer, selectedAnswer }: ExerciseSectionProps) {
   const handleAnswerSubmit = (answer: string) => {
-    setSelectedAnswer(answer)
     const isCorrect = answer === exercise.correct
-    setFeedback(isCorrect ? "Correct!" : "Try again!")
-    onComplete(isCorrect)
+    onAnswer(answer, isCorrect)
   }
 
   return (
@@ -61,15 +56,6 @@ export function ExerciseSection({ exercise, onComplete }: ExerciseSectionProps) 
             )
           })}
         </div>
-        {feedback && (
-          <p
-            className={`mt-6 text-center font-bold text-lg ${
-              feedback === "Correct!" ? "text-emerald-400" : "text-red-400"
-            }`}
-          >
-            {feedback}
-          </p>
-        )}
       </div>
     </div>
   )

@@ -2,10 +2,11 @@
 import { Sparkles } from "lucide-react"
 
 interface LessonCompleteProps {
-  onStartNewLesson: () => void
+  onNextLesson: () => void
+  score: number
 }
 
-export function LessonComplete({ onStartNewLesson }: LessonCompleteProps) {
+export function LessonComplete({ onNextLesson, score }: LessonCompleteProps) {
   return (
     <div className="card glass-card text-center animate-fade-in">
       <div className="card-header">
@@ -16,7 +17,13 @@ export function LessonComplete({ onStartNewLesson }: LessonCompleteProps) {
       </div>
       <div className="card-content">
         <p className="mb-6 text-lg text-zinc-400">Congratulations on finishing the lesson!</p>
-        <button onClick={onStartNewLesson} className="btn btn-primary text-lg px-8 py-3">
+        <p className="text-lg text-zinc-300 mb-2">
+          Your score: <span className="font-bold text-emerald-300">{score}%</span>
+        </p>
+        <button
+          onClick={onNextLesson}
+          className="btn btn-primary text-lg px-8 py-3"
+        >
           Start New Lesson
         </button>
       </div>

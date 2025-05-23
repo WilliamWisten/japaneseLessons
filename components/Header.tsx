@@ -1,10 +1,12 @@
 import Link from "next/link"
+import { useAuth } from "./AuthProvider"
 
 interface HeaderProps {
   lessonNumber: number | null
 }
 
 export function Header({ lessonNumber }: HeaderProps) {
+  const { user, login, logout } = useAuth();
   return (
     <header className="border-b border-zinc-800 bg-black/80 backdrop-blur-sm sticky top-0 z-10">
       <div className="max-w-4xl mx-auto px-4 py-6">
@@ -17,6 +19,23 @@ export function Header({ lessonNumber }: HeaderProps) {
               Japanese Tutor
             </Link>
             {lessonNumber && <p className="text-zinc-400 mt-1">Lesson {lessonNumber}</p>}
+          </div>
+          <div className="ml-auto flex items-center gap-4">
+            {user ? (
+              <button
+                className="btn btn-outline"
+                onClick={logout}
+              >
+                Log out
+              </button>
+            ) : (
+              <button
+                className="btn btn-primary"
+                onClick={login}
+              >
+                Login
+              </button>
+            )}
           </div>
         </div>
       </div>
